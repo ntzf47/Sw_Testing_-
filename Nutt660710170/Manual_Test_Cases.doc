@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        h1 { font-family: sans-serif; text-align: center; }
+        table { border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 11pt; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Manual Test Cases - Nutt</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>TC ID</th>
+                <th>โมดูล / ฟังก์ชัน</th>
+                <th>ประเภท</th>
+                <th>คำอธิบาย</th>
+                <th>ขั้นตอนการทดสอบ</th>
+                <th>ผลลัพธ์ที่คาดหวัง</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>TC-001</td><td>Login</td><td>Negative</td><td>Login โดยไม่กรอกข้อมูล</td><td>1. ไปหน้า Login<br/>2. ไม่กรอก Username/Password<br/>3. กด Login</td><td>ระบบแจ้งว่าต้องกรอกข้อมูล</td></tr>
+            <tr><td>TC-002</td><td>Login</td><td>Positive</td><td>Login ด้วยข้อมูลถูกต้อง</td><td>1. กรอก Username/Password ถูกต้อง<br/>2. กด Login</td><td>เข้าสู่ระบบสำเร็จ</td></tr>
+            <tr><td>TC-003</td><td>Register</td><td>Negative</td><td>ใช้ email ซ้ำ</td><td>1. กรอก email ที่เคยสมัครแล้ว<br/>2. กดสมัคร</td><td>ระบบแจ้งว่า email ถูกใช้แล้ว</td></tr>
+            <tr><td>TC-004</td><td>Register</td><td>Negative</td><td>รหัสผ่านสั้นเกินไป</td><td>1. กรอก password 3 ตัวอักษร<br/>2. กดสมัคร</td><td>ระบบไม่ยอมรับ</td></tr>
+            <tr><td>TC-005</td><td>Register</td><td>Positive</td><td>รหัสผ่านตามเงื่อนไข</td><td>1. กรอก password ตาม policy<br/>2. กดสมัคร</td><td>สมัครสำเร็จ</td></tr>
+            <tr><td>TC-006</td><td>Profile</td><td>Positive</td><td>แก้ไขโปรไฟล์สำเร็จ</td><td>1. ไปหน้า Profile<br/>2. แก้ไขข้อมูล<br/>3. กด Save</td><td>ข้อมูลอัปเดตสำเร็จ</td></tr>
+            <tr><td>TC-007</td><td>Profile</td><td>Negative</td><td>ใส่ข้อมูลยาวเกิน limit</td><td>1. ใส่ชื่อยาวมาก<br/>2. กด Save</td><td>ระบบแจ้ง error</td></tr>
+            <tr><td>TC-008</td><td>Contest</td><td>Positive</td><td>บันทึกเป็น draft</td><td>1. กรอกข้อมูลบางส่วน<br/>2. กด Save Draft</td><td>ระบบบันทึก draft</td></tr>
+            <tr><td>TC-009</td><td>Contest</td><td>Negative</td><td>ไม่กรอกชื่อ contest</td><td>1. เว้นชื่อ<br/>2. กดสร้าง</td><td>ระบบไม่ให้สร้าง</td></tr>
+            <tr><td>TC-010</td><td>Contest</td><td>Negative</td><td>วันที่ไม่ถูกต้อง</td><td>1. ใส่ end date ก่อน start date<br/>2. กด save</td><td>ระบบแจ้ง error</td></tr>
+            <tr><td>TC-011</td><td>Contest</td><td>Positive</td><td>เปิดรับสมัคร</td><td>1. เปลี่ยน status เป็น open<br/>2. save</td><td>ผู้ใช้สมัครได้</td></tr>
+            <tr><td>TC-012</td><td>Contest</td><td>Negative</td><td>สมัครหลัง deadline</td><td>1. รอหมดเวลา<br/>2. สมัคร</td><td>ระบบไม่ให้สมัคร</td></tr>
+            <tr><td>TC-013</td><td>Submit Poem</td><td>Negative</td><td>ไม่กรอกเนื้อหา</td><td>1. ไม่ใส่กลอน<br/>2. กด submit</td><td>ระบบแจ้งให้กรอก</td></tr>
+            <tr><td>TC-014</td><td>Submit Poem</td><td>Positive</td><td>แก้ไขก่อน deadline</td><td>1. แก้ไขผลงาน<br/>2. save</td><td>อัปเดตสำเร็จ</td></tr>
+            <tr><td>TC-015</td><td>Submit Poem</td><td>Negative</td><td>แก้ไขหลัง deadline</td><td>1. รอหมดเวลา<br/>2. แก้ไข</td><td>ระบบไม่อนุญาต</td></tr>
+            <tr><td>TC-016</td><td>Submit Poem</td><td>Negative</td><td>ส่งซ้ำหลายครั้ง</td><td>1. submit เดิมซ้ำ<br/>2. กดหลายรอบ</td><td>ระบบกัน duplicate</td></tr>
+            <tr><td>TC-017</td><td>File Upload</td><td>Positive</td><td>อัปโหลด jpg ปกติ</td><td>1. เลือกไฟล์ jpg<br/>2. upload</td><td>สำเร็จ</td></tr>
+            <tr><td>TC-018</td><td>File Upload</td><td>Negative</td><td>ไฟล์ใหญ่เกิน limit</td><td>1. upload ไฟล์ใหญ่<br/>2. submit</td><td>ระบบ reject</td></tr>
+            <tr><td>TC-019</td><td>Judge Area</td><td>Positive</td><td>เห็นงานที่ assigned</td><td>1. login judge<br/>2. ดูรายการงาน</td><td>เห็นเฉพาะงานตัวเอง</td></tr>
+            <tr><td>TC-020</td><td>Judge Area</td><td>Negative</td><td>ดูงานคนอื่น</td><td>1. เปลี่ยน ID งาน<br/>2. เปิด</td><td>ระบบ block</td></tr>
+            <tr><td>TC-021</td><td>Grading</td><td>Positive</td><td>ให้คะแนนครบ</td><td>1. กรอกคะแนนทุกช่อง<br/>2. save</td><td>บันทึกสำเร็จ</td></tr>
+            <tr><td>TC-022</td><td>Grading</td><td>Negative</td><td>ไม่กรอกคะแนนบางช่อง</td><td>1. เว้นบางช่อง<br/>2. save</td><td>ระบบไม่ให้ submit</td></tr>
+            <tr><td>TC-023</td><td>Grading</td><td>Negative</td><td>ใส่คะแนนเป็น text</td><td>1. ใส่คำว่า "ดีมาก"<br/>2. save</td><td>ระบบ reject</td></tr>
+            <tr><td>TC-024</td><td>Result</td><td>Positive</td><td>รวมคะแนนอัตโนมัติ</td><td>1. มีหลายคะแนน<br/>2. ดูผลรวม</td><td>ระบบคำนวณถูกต้อง</td></tr>
+            <tr><td>TC-025</td><td>Result</td><td>Negative</td><td>publish โดยไม่มีคะแนน</td><td>1. กด publish<br/>2. ไม่มีคะแนน</td><td>ระบบไม่ให้ publish</td></tr>
+            <tr><td>TC-026</td><td>Admin</td><td>Positive</td><td>ลบผู้ใช้สำเร็จ</td><td>1. เลือก user<br/>2. กด delete</td><td>ลบสำเร็จ</td></tr>
+            <tr><td>TC-027</td><td>Admin</td><td>Negative</td><td>ลบตัวเอง</td><td>1. admin ลบ account ตัวเอง</td><td>ระบบไม่ให้ลบ</td></tr>
+            <tr><td>TC-028</td><td>Notification</td><td>Positive</td><td>แจ้งเตือนงานใหม่</td><td>1. submit งานใหม่</td><td>judge ได้แจ้งเตือน</td></tr>
+            <tr><td>TC-029</td><td>Notification</td><td>Negative</td><td>แจ้งเตือนซ้ำ</td><td>1. trigger ซ้ำหลายครั้ง</td><td>ไม่ส่งซ้ำ</td></tr>
+            <tr><td>TC-030</td><td>Logout</td><td>Positive</td><td>logout สำเร็จ</td><td>1. กด logout</td><td>กลับหน้า login</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

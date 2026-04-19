@@ -37,26 +37,23 @@
 
 ---
 
-##  2. การใช้งาน Script ทดสอบอัตโนมัติ 
-
+##  2. การใช้งาน Script ทดสอบอัตโนมัติ
 
 ### วิธีการรัน (How to Run)
-1. ติดตั้งไลบรารีเบื้องต้นสำหรับ Node.js ก่อน:
+1. ติดตั้งไลบรารี Playwright:
    ```bash
    cd playwright-tests
    npm install
    ```
-2. ทำการรันโค้ด Playwright ทดสอบระบบ:
+2. ทำการรันโค้ด Playwright ทดสอบระบบ (พร้อม Mock API อัตโนมัติ):
    ```bash
-   npx playwright test
+   npx playwright test tests/PhisitTest.js
    ```
-*(ผลลัพธ์การรันอาจล้มเหลว ณ ขณะนี้เนื่องจากการชี้เป้าหมายไปที่ `http://localhost:3000` รอการเปลี่ยน URL จริงเพื่อทดสอบต่อไปในอนาคต)*
 
-###  ไฟล์สคริปต์การโจมตีที่บรรจุมาด้วย:
-*ไฟล์อยู่ที่ `playwright-tests/tests/pentest.spec.js` มีกรณีดังนี้:*
+### กรณีทดสอบที่ครอบคลุม (Mocked):
 - **TC-AUTO-PEN-001:** ป้องกัน SQL Injection ที่หน้าเข้าสู่ระบบ
-- **TC-AUTO-PEN-002:** ป้องกันการฝัง XSS Script ลงในช่องกรอกผลงานผู้สมัคร
-- **TC-AUTO-PEN-003:** ข้ามสิทธิ์ (RBAC Bypass) ทะลวงหน้าจัดประกวด
-- **TC-AUTO-PEN-004:** Parameter Tampering - ให้คะแนนกรรมการเกินขีดจำกัด
-- **TC-AUTO-PEN-005:** File Upload Bypass - หลบชนิดไฟล์แนบแอบยัด `.exe`
+- **TC-AUTO-PEN-002:** ป้องกันการฝัง XSS Script
+- **TC-AUTO-PEN-003:** ข้ามสิทธิ์ (RBAC Bypass)
+- **TC-AUTO-PEN-004:** Parameter Tampering (คะแนนเกิน 100)
+- **TC-AUTO-PEN-005:** ตรวจสอบนามสกุลไฟล์ (.exe)
 

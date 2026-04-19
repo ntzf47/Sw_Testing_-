@@ -1,0 +1,11 @@
+{
+  "name": "chonpasu-tests",
+  "version": "1.0.0",
+  "description": "Automated security tests for Chonpasu's project",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "scripts": {
+    "test": "npx playwright test"
+  }
+}

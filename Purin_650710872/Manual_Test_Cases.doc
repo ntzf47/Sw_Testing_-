@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        h1 { font-family: sans-serif; text-align: center; }
+        table { border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 11pt; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Manual Test Cases - Purin</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>TC ID</th>
+                <th>โมดูล</th>
+                <th>ประเภท</th>
+                <th>คำอธิบาย</th>
+                <th>ขั้นตอนการทดสอบ</th>
+                <th>ผลลัพธ์ที่คาดหวัง</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>TC-001</td><td>Login</td><td>UX</td><td>ปุ่ม Login มี loading</td><td>1. เปิดหน้า Login <br/> 2. กรอก username/password ถูกต้อง <br/> 3. กด Login</td><td>มี loading และปุ่มถูก disable</td></tr>
+            <tr><td>TC-002</td><td>Login</td><td>Edge</td><td>กด Enter แทนคลิกปุ่ม</td><td>1. เปิดหน้า Login <br/> 2. กรอกข้อมูล <br/> 3. กด Enter</td><td>สามารถ login ได้</td></tr>
+            <tr><td>TC-003</td><td>Login</td><td>Edge</td><td>ใส่ช่องว่างก่อน/หลัง username</td><td>1. เปิดหน้า Login <br/> 2. ใส่ " user " <br/> 3. กด Login</td><td>ระบบ trim แล้ว login ได้</td></tr>
+            <tr><td>TC-004</td><td>Register</td><td>Boundary</td><td>username ยาวสูงสุด</td><td>1. เปิดหน้า Register <br/> 2. กรอก username ตาม max length <br/> 3. submit</td><td>สมัครได้</td></tr>
+            <tr><td>TC-005</td><td>Register</td><td>Boundary</td><td>username เกิน limit</td><td>1. เปิดหน้า Register <br/> 2. กรอกเกิน limit <br/> 3. submit</td><td>ระบบ reject</td></tr>
+            <tr><td>TC-006</td><td>Register</td><td>Edge</td><td>ใช้ภาษาไทย</td><td>1. เปิดหน้า Register <br/> 2. กรอกชื่อภาษาไทย <br/> 3. submit</td><td>ระบบรองรับ</td></tr>
+            <tr><td>TC-007</td><td>Register</td><td>Edge</td><td>ใช้ emoji</td><td>1. เปิดหน้า Register <br/> 2. ใส่ 😎🔥 <br/> 3. submit</td><td>ระบบ validate</td></tr>
+            <tr><td>TC-008</td><td>Register</td><td>UX</td><td>error message ชัดเจน</td><td>1. เปิดหน้า Register <br/> 2. กรอกข้อมูลผิด <br/> 3. submit</td><td>มี error ชัดเจน</td></tr>
+            <tr><td>TC-009</td><td>Profile</td><td>UX</td><td>กด save แล้วมี feedback</td><td>1. เปิดหน้า Profile <br/> 2. แก้ไขข้อมูล <br/> 3. กด Save</td><td>มี success message</td></tr>
+            <tr><td>TC-010</td><td>Profile</td><td>Edge</td><td>refresh ระหว่าง edit</td><td>1. เปิด Profile <br/> 2. แก้ข้อมูล <br/> 3. refresh</td><td>ข้อมูลไม่หายโดยไม่ตั้งใจ</td></tr>
+            <tr><td>TC-011</td><td>Contest</td><td>Workflow</td><td>create แต่ไม่ publish</td><td>1. สร้าง contest <br/> 2. ไม่กด publish</td><td>user ไม่เห็น</td></tr>
+            <tr><td>TC-012</td><td>Contest</td><td>State</td><td>draft → open → close</td><td>1. สร้าง contest <br/> 2. เปลี่ยน state</td><td>state ถูกต้อง</td></tr>
+            <tr><td>TC-013</td><td>Contest</td><td>UX</td><td>save draft</td><td>1. เปิดหน้า create <br/> 2. กด save draft</td><td>บันทึกสำเร็จ</td></tr>
+            <tr><td>TC-014</td><td>Contest</td><td>Edge</td><td>ใช้วันที่ปัจจุบัน</td><td>1. ใส่ start = today <br/> 2. submit</td><td>ระบบรองรับ</td></tr>
+            <tr><td>TC-015</td><td>Contest</td><td>Boundary</td><td>ชื่อ contest = 1 ตัว</td><td>1. กรอก 1 ตัวอักษร <br/> 2. submit</td><td>ผ่าน/ไม่ผ่านตาม rule</td></tr>
+            <tr><td>TC-016</td><td>Submit</td><td>UX</td><td>submit แล้ว redirect</td><td>1. submit งาน <br/> 2. ตรวจ redirect</td><td>ไปหน้าสำเร็จ</td></tr>
+            <tr><td>TC-017</td><td>Submit</td><td>Edge</td><td>กด back หลัง submit</td><td>1. submit <br/> 2. กด back</td><td>ไม่ส่งซ้ำ</td></tr>
+            <tr><td>TC-018</td><td>Submit</td><td>Workflow</td><td>submit → edit → submit</td><td>1. submit <br/> 2. edit <br/> 3. submit</td><td>อัปเดตข้อมูล</td></tr>
+            <tr><td>TC-019</td><td>Submit</td><td>Boundary</td><td>เนื้อหา 1 ตัว</td><td>1. กรอก 1 ตัว <br/> 2. submit</td><td>ผ่าน/ไม่ผ่านตาม rule</td></tr>
+            <tr><td>TC-020</td><td>File Upload</td><td>UX</td><td>progress bar</td><td>1. upload ไฟล์ใหญ่</td><td>มี progress</td></tr>
+            <tr><td>TC-021</td><td>File Upload</td><td>Edge</td><td>cancel upload</td><td>1. upload <br/> 2. cancel</td><td>หยุดอัปโหลด</td></tr>
+            <tr><td>TC-022</td><td>File Upload</td><td>Boundary</td><td>ขนาด = limit</td><td>1. upload ไฟล์ขนาด limit</td><td>ผ่าน</td></tr>
+            <tr><td>TC-023</td><td>Search</td><td>UX</td><td>auto suggestion</td><td>1. พิมพ์ keyword</td><td>มี suggestion</td></tr>
+            <tr><td>TC-024</td><td>Search</td><td>Edge</td><td>ค้นหาด้วย space</td><td>1. ค้นหา " "</td><td>ไม่ crash</td></tr>
+            <tr><td>TC-025</td><td>Search</td><td>Edge</td><td>case insensitive</td><td>1. ค้นหา "PoEm"</td><td>เจอผล</td></tr>
+            <tr><td>TC-026</td><td>Notification</td><td>UX</td><td>badge แจ้งเตือน</td><td>1. มี event ใหม่</td><td>badge เพิ่ม</td></tr>
+            <tr><td>TC-027</td><td>Notification</td><td>Edge</td><td>หลาย tab</td><td>1. เปิดหลาย tab <br/> 2. trigger แจ้งเตือน</td><td>sync ทุก tab</td></tr>
+            <tr><td>TC-028</td><td>Logout</td><td>UX</td><td>logout redirect</td><td>1. กด logout</td><td>ไปหน้า login</td></tr>
+            <tr><td>TC-029</td><td>Session</td><td>Edge</td><td>session timeout</td><td>1. idle นาน</td><td>logout auto</td></tr>
+            <tr><td>TC-030</td><td>Navigation</td><td>UX</td><td>คลิกเร็ว</td><td>1. click menu รัวๆ</td><td>ไม่ crash</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "phisit-tests",
+  "version": "1.0.0",
+  "description": "Automated security tests for Phisit's project",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "scripts": {
+    "test": "npx playwright test"
+  }
+}
